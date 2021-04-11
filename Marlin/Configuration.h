@@ -428,7 +428,7 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 13
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -513,9 +513,9 @@
     #define DEFAULT_Kd_LIST { 49.50, 49.50 }
   #else
     // Sapphire S/Pro/Plus
-    #define DEFAULT_Kp 10.66
-    #define DEFAULT_Ki  0.57
-    #define DEFAULT_Kd 49.77
+    #define DEFAULT_Kp 24.8
+    #define DEFAULT_Ki  1.55
+    #define DEFAULT_Kd 98.8
   #endif
 #endif // PIDTEMP
 
@@ -634,10 +634,10 @@
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
-//#define USE_YMIN_PLUG
+#define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
-#define USE_YMAX_PLUG
+//#define USE_YMAX_PLUG
 #if DISABLED(SAPPHIRE_PLUS_BLTOUCH)
   #define USE_ZMAX_PLUG
 #endif
@@ -674,11 +674,11 @@
 #else
   #define SP_INVERTING false
 #endif
-#define X_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING SP_INVERTING // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING SP_INVERTING // Set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING SP_INVERTING // Set to true to invert the logic of the probe.
 
@@ -1148,7 +1148,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1166,19 +1166,19 @@
 #define Z_HOMING_HEIGHT  5        // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-#define Z_AFTER_HOMING  10        // (mm) Height to move to after homing Z
+//#define Z_AFTER_HOMING  10        // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #define X_HOME_DIR -1
-#define Y_HOME_DIR 1
+#define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 300
-#define Y_BED_SIZE 295 // To stop pulleys hitting stepper mounts
+#define X_BED_SIZE 310
+#define Y_BED_SIZE 280 // To stop pulleys hitting stepper mounts
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
